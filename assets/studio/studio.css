@@ -1,0 +1,426 @@
+/* Open Designer Cloud Studio: shared design system (dark app UI).
+   Used by the /studio landing page (a BriteWire CORE page, wrapped in the site header) and by
+   standalone tools such as /studio/background-remover/ (own page, own top bar). */
+:root {
+  --ocx-bg: #0e0e10;
+  --ocx-panel: #17171a;
+  --ocx-raised: #212125;
+  --ocx-hover: #26262b;
+  --ocx-line: #2b2b31;
+  --ocx-text: #f4f4f6;
+  --ocx-muted: #a3a3ad;
+  --ocx-dim: #70707b;
+  --ocx-accent: #0b5fff;
+  --ocx-accent-hi: #6ea0ff;
+  --ocx-accent-2: #f4f4f6;
+  --ocx-grad: var(--ocx-accent);   /* no gradients: one flat accent for clickable things */
+  --ocx-r: 10px;
+  --ocx-r-lg: 14px;
+  --ocx-side: 268px;
+  --ocx-font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --ocx-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+}
+
+/* ── Standalone pages ─────────────────────────────────────────────────────── */
+body.ocx-standalone { margin: 0; background: var(--ocx-bg); color: var(--ocx-text); font: 15px/1.55 var(--ocx-font); -webkit-font-smoothing: antialiased; }
+body.ocx-standalone a { color: var(--ocx-accent-hi); }
+.ocx-top {
+  position: sticky; top: 0; z-index: 50; height: 56px; padding: 0 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  background: rgba(14,14,16,.88); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--ocx-line);
+}
+.ocx-brand { display: flex; align-items: center; gap: 10px; color: var(--ocx-text) !important; text-decoration: none; font: 700 1rem/1 var(--ocx-display); white-space: nowrap; }
+.ocx-brand img { height: 30px; width: auto; }
+.ocx-brand .ocx-ver { margin-left: 2px; color: var(--ocx-dim); font: 500 .68rem/1 var(--ocx-font); letter-spacing: .02em; white-space: nowrap; }
+.ocx-brand .ocx-tag { margin-left: 4px; padding: .22rem .55rem; border-radius: 999px; background: var(--ocx-raised); color: var(--ocx-muted); font: 600 .72rem/1 var(--ocx-font); letter-spacing: .06em; text-transform: uppercase; }
+.ocx-top-links { display: flex; align-items: center; gap: 4px; }
+.ocx-top-links a { white-space: nowrap; color: var(--ocx-muted) !important; text-decoration: none; padding: .45rem .8rem; border-radius: 9px; font-weight: 500; font-size: .92rem; }
+.ocx-top-links a:hover { background: var(--ocx-raised); color: var(--ocx-text) !important; }
+
+/* ── App shell ───────────────────────────────────────────────────────────── */
+.ocx-app { --ocx-top: 56px; display: grid; grid-template-columns: var(--ocx-side) minmax(0, 1fr); min-height: calc(100vh - var(--ocx-top)); background: var(--ocx-bg); color: var(--ocx-text); font-family: var(--ocx-font); }
+.ocx-app, .ocx-app * { box-sizing: border-box; }
+.ocx-app a { color: var(--ocx-accent-hi); }
+.ocx-side { position: sticky; top: var(--ocx-top); align-self: start; height: calc(100vh - var(--ocx-top)); overflow-y: auto; padding: 18px 14px 18px 16px; display: flex; flex-direction: column; }
+.ocx-side nav { display: flex; flex-direction: column; gap: 2px; }
+.ocx-side-foot { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--ocx-line); }
+.ocx-nav { display: flex; align-items: center; gap: 12px; padding: .62rem .8rem; border-radius: 11px; color: var(--ocx-text) !important; text-decoration: none; font-size: .93rem; font-weight: 500; transition: background .15s; }
+.ocx-nav:hover { background: var(--ocx-raised); }
+.ocx-nav.is-active { background: var(--ocx-hover); }
+.ocx-nav.is-soon { color: var(--ocx-dim) !important; cursor: default; }
+.ocx-nav.is-soon:hover { background: transparent; }
+.ocx-nav em { margin-left: auto; font: 600 .66rem/1 var(--ocx-font); letter-spacing: .06em; text-transform: uppercase; padding: .25rem .45rem; border-radius: 999px; background: var(--ocx-raised); color: var(--ocx-muted); }
+.ocx-ico { width: 20px; height: 20px; flex: 0 0 auto; }
+/* AI star: the blue four-point star (same shape as HyperImage) badges the icon of any tool that runs a model. */
+.ocx-ico-ai { position: relative; display: inline-flex; flex: 0 0 auto; }
+.ocx-ico-ai::after { content: ''; position: absolute; top: -8px; right: -9px; width: 15px; height: 15px; background: var(--ocx-accent-hi); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 0c.6 4.4 3.6 7.4 8 8-4.4.6-7.4 3.6-8 8-.6-4.4-3.6-7.4-8-8 4.4-.6 7.4-3.6 8-8z'/%3E%3C/svg%3E") center/contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 0c.6 4.4 3.6 7.4 8 8-4.4.6-7.4 3.6-8 8-.6-4.4-3.6-7.4-8-8 4.4-.6 7.4-3.6 8-8z'/%3E%3C/svg%3E") center/contain no-repeat; pointer-events: none; }
+.ocx-nav > span:not(.ocx-ico-ai) { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }   /* the label; not the AI-badged icon wrapper, whose star sits outside its box */
+.ocx-nav-sec { margin: 20px 0 6px; padding: 0 .8rem; font: 600 .7rem/1 var(--ocx-font); letter-spacing: .09em; text-transform: uppercase; color: var(--ocx-dim); }
+.ocx-side-note { margin: auto 0 0; padding: 14px .8rem 0; font-size: .78rem; line-height: 1.5; color: var(--ocx-dim); }
+
+.ocx-main { position: relative; margin: 12px 14px 14px 0; padding: 32px 40px 56px; background: var(--ocx-panel); border: 1px solid var(--ocx-line); border-radius: var(--ocx-r-lg); min-width: 0; }
+.ocx-kicker { margin: 0 0 8px; font: 600 .78rem/1 var(--ocx-font); letter-spacing: .1em; text-transform: uppercase; color: var(--ocx-muted); }
+.ocx-h1 { margin: 0 0 8px; font: 700 clamp(1.9rem, 3.4vw, 2.6rem)/1.1 var(--ocx-display); letter-spacing: -.02em; color: var(--ocx-text); }
+.ocx-sub { margin: 0 0 28px; max-width: 46rem; color: var(--ocx-muted); font-size: 1.05rem; }
+.ocx-crumb { margin: 0 0 14px; font-size: .86rem; color: var(--ocx-dim); }
+.ocx-crumb a { color: var(--ocx-muted) !important; text-decoration: none; }
+.ocx-crumb a:hover { color: var(--ocx-text) !important; }
+
+/* ── Tiles (landing) ─────────────────────────────────────────────────────── */
+.ocx-tiles { display: grid; gap: 16px; margin: 0 0 16px; }
+.ocx-tiles-lg { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ocx-tiles-sm { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.ocx-tile { position: relative; display: block; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 16px; background: var(--ocx-raised); color: #fff !important; text-decoration: none; isolation: isolate; border: 1px solid var(--ocx-line); }
+.ocx-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; z-index: -2; }
+.ocx-tile::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0,0,0,0) 52%, rgba(0,0,0,.78) 100%); }
+.ocx-tile-label { position: absolute; left: 20px; right: 20px; bottom: 18px; font: 600 1.12rem/1.25 var(--ocx-display); text-shadow: 0 1px 14px rgba(0,0,0,.5); }
+.ocx-tiles-sm .ocx-tile-label { font-size: 1rem; left: 16px; bottom: 15px; }
+.ocx-tile-label small { display: block; margin-top: 3px; font: 500 .8rem/1.3 var(--ocx-font); color: rgba(255,255,255,.78); }
+a.ocx-tile:hover img, a.ocx-tile:focus-visible img { transform: scale(1.05); }
+a.ocx-tile:hover, a.ocx-tile:focus-visible { border-color: #4a4a54; outline: none; box-shadow: 0 0 0 2px var(--ocx-accent); }
+.ocx-badge { position: absolute; top: 14px; left: 14px; padding: .32rem .62rem; border-radius: 999px; background: rgba(14,14,16,.72); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); color: #fff; font: 600 .7rem/1 var(--ocx-font); letter-spacing: .05em; text-transform: uppercase; }
+.ocx-badge.is-live { background: var(--ocx-grad); }
+.ocx-tile.is-soon { cursor: default; }
+.ocx-tile.is-soon img { filter: saturate(.75) brightness(.9); }
+
+.ocx-points { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 36px; }
+.ocx-point { padding: 20px 22px; border: 1px solid var(--ocx-line); border-radius: var(--ocx-r); background: var(--ocx-raised); }
+.ocx-point h3 { margin: 0 0 6px; font: 600 1rem/1.3 var(--ocx-display); color: var(--ocx-text); }
+.ocx-point p { margin: 0; color: var(--ocx-muted); font-size: .92rem; }
+
+/* ── Controls ────────────────────────────────────────────────────────────── */
+.ocx-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: .72rem 1.2rem; border: 1px solid var(--ocx-line); border-radius: 8px; background: var(--ocx-raised); color: var(--ocx-text) !important; font: 600 .92rem/1 var(--ocx-font); text-decoration: none; cursor: pointer; transition: background .15s, transform .1s, border-color .15s; }
+.ocx-btn:hover { background: var(--ocx-hover); border-color: #3a3a42; }
+.ocx-btn:active { transform: translateY(1px); }
+.ocx-btn:disabled, .ocx-btn[aria-disabled="true"] { opacity: .45; cursor: not-allowed; }
+.ocx-btn-primary { background: var(--ocx-grad); border-color: transparent; color: #fff !important; }
+.ocx-btn-primary:hover { background: var(--ocx-grad); filter: brightness(1.1); border-color: transparent; }
+.ocx-btn-block { width: 100%; }
+.ocx-app :focus-visible { outline: 2px solid var(--ocx-accent-hi); outline-offset: 2px; }
+
+.ocx-seg { display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; padding: 3px; border-radius: 11px; background: var(--ocx-bg); border: 1px solid var(--ocx-line); width: 100%; }
+.ocx-seg button { padding: .55rem .6rem; border: 0; border-radius: 8px; background: transparent; color: var(--ocx-muted); font: 600 .84rem/1.1 var(--ocx-font); cursor: pointer; }
+.ocx-seg button[aria-pressed="true"] { background: var(--ocx-hover); color: var(--ocx-text); box-shadow: 0 0 0 1px #3a3a42 inset; }
+.ocx-seg button:disabled { opacity: .4; cursor: not-allowed; }
+.ocx-field { margin: 0 0 20px; }
+.ocx-label { display: flex; justify-content: space-between; align-items: baseline; margin: 0 0 8px; font: 600 .78rem/1 var(--ocx-font); letter-spacing: .06em; text-transform: uppercase; color: var(--ocx-muted); }
+.ocx-label output { font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--ocx-dim); }
+.ocx-hint { margin: 8px 0 0; font-size: .8rem; line-height: 1.45; color: var(--ocx-dim); }
+
+.ocx-swatches { display: flex; flex-wrap: wrap; gap: 8px; }
+.ocx-swatch { position: relative; width: 38px; height: 38px; border-radius: 10px; border: 2px solid var(--ocx-line); cursor: pointer; padding: 0; overflow: hidden; background: var(--sw, #fff); }
+.ocx-swatch[aria-pressed="true"] { border-color: var(--ocx-accent-hi); box-shadow: 0 0 0 2px rgba(179,148,230,.35); }
+.ocx-swatch.is-clear { background: repeating-conic-gradient(#5b5b63 0 25%, #3d3d44 0 50%) 50% / 12px 12px; }
+.ocx-swatch input[type="color"] { position: absolute; inset: -6px; width: 150%; height: 150%; opacity: 0; cursor: pointer; }
+.ocx-swatch.is-custom { background: conic-gradient(#f44, #fd4, #4f8, #4af, #a4f, #f44); }
+
+.ocx-switch { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 20px; font-size: .92rem; cursor: pointer; }
+.ocx-switch input { appearance: none; -webkit-appearance: none; flex: 0 0 auto; width: 42px; height: 24px; border-radius: 999px; background: var(--ocx-hover); position: relative; cursor: pointer; border: 1px solid #3a3a42; transition: background .15s; }
+.ocx-switch input::after { content: ""; position: absolute; top: 2px; left: 2px; width: 18px; height: 18px; border-radius: 50%; background: #fff; transition: transform .15s; }
+.ocx-switch input:checked { background: var(--ocx-accent); border-color: var(--ocx-accent); }
+.ocx-switch input:checked::after { transform: translateX(18px); }
+.ocx-app input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 999px; background: var(--ocx-hover); outline-offset: 6px; }
+.ocx-app input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 0; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,.5); }
+.ocx-app input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 0; cursor: pointer; }
+
+/* ── Tool workspace ──────────────────────────────────────────────────────── */
+.ocx-work { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 20px; align-items: start; }
+.ocx-work[data-state="empty"], .ocx-work[data-state="working"] { grid-template-columns: minmax(0, 1fr); }
+.ocx-stage { position: relative; min-height: var(--ocx-stage-h, 420px); border-radius: var(--ocx-r-lg); background: var(--ocx-bg); border: 1px solid var(--ocx-line); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.ocx-drop { width: 100%; min-height: 420px; padding: 40px 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center; border: 2px dashed #3a3a42; border-radius: var(--ocx-r-lg); background: transparent; color: var(--ocx-text); font: inherit; cursor: pointer; transition: border-color .15s, background .15s; }
+.ocx-stage.is-over .ocx-drop, .ocx-drop:hover { border-color: var(--ocx-accent-hi); background: rgba(110,160,255,.07); }
+.ocx-drop-ico { width: 64px; height: 64px; display: grid; place-items: center; border-radius: 18px; background: var(--ocx-raised); color: var(--ocx-accent-hi); }
+.ocx-drop-ico svg { width: 30px; height: 30px; }
+.ocx-drop-title { margin: 0; font: 600 1.25rem/1.3 var(--ocx-display); }
+.ocx-drop-sub { margin: 0; color: var(--ocx-muted); font-size: .92rem; }
+.ocx-drop .ocx-btn { margin-top: 6px; pointer-events: none; }
+.ocx-stage [hidden], .ocx-work [hidden] { display: none !important; }
+
+.ocx-busy { position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 24px; text-align: center; background: rgba(14,14,16,.78); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.ocx-busy p { margin: 0; font-weight: 600; }
+.ocx-busy small { color: var(--ocx-muted); max-width: 26rem; }
+.ocx-bar { width: min(340px, 80%); height: 8px; border-radius: 999px; background: var(--ocx-hover); overflow: hidden; }
+.ocx-bar > i { display: block; height: 100%; width: 0; border-radius: inherit; background: var(--ocx-text); transition: width .2s; }
+.ocx-bar.is-indeterminate > i { width: 40%; animation: ocx-slide 1.1s ease-in-out infinite; }
+@keyframes ocx-slide { 0% { margin-left: -40%; } 100% { margin-left: 100%; } }
+
+.ocx-view { position: relative; display: inline-block; line-height: 0; max-width: 100%; border-radius: 6px; overflow: hidden; background: repeating-conic-gradient(#2a2a30 0 25%, #1f1f24 0 50%) 50% / 20px 20px; }
+.ocx-view canvas { display: block; max-width: 100%; max-height: var(--ocx-view-h, max(420px, calc(100vh - 300px))); width: auto; height: auto; }
+.ocx-view .ocx-orig { position: absolute; inset: 0; width: 100%; height: 100%; max-height: none; pointer-events: none; background: repeating-conic-gradient(#2a2a30 0 25%, #1f1f24 0 50%) 50% / 20px 20px; }
+.ocx-divider { position: absolute; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.35); pointer-events: none; }
+.ocx-divider::after { content: "\2194"; position: absolute; top: 50%; left: 50%; width: 34px; height: 34px; margin: -17px 0 0 -17px; display: grid; place-items: center; border-radius: 50%; background: #fff; color: #17171a; font: 700 16px/1 var(--ocx-font); box-shadow: 0 2px 10px rgba(0,0,0,.4); }
+.ocx-compare { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
+/* The global range-input rule (.ocx-app input[type="range"], 6px tall) would otherwise shrink this overlay to a thin strip, so only the top edge of the picture could be dragged. */
+.ocx-app .ocx-view input.ocx-compare[type="range"] { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; border-radius: 0; background: transparent; opacity: 0; cursor: ew-resize; touch-action: pan-y; }
+.ocx-view-tags { position: absolute; left: 10px; right: 10px; bottom: 10px; display: flex; justify-content: space-between; pointer-events: none; line-height: 1; }
+.ocx-view-tags span { padding: .3rem .55rem; border-radius: 999px; background: rgba(14,14,16,.7); color: #fff; font: 600 .7rem/1 var(--ocx-font); letter-spacing: .05em; text-transform: uppercase; }
+
+.ocx-panel { padding: 22px; border-radius: var(--ocx-r-lg); background: var(--ocx-raised); border: 1px solid var(--ocx-line); position: sticky; top: calc(var(--ocx-top) + 16px); }
+.ocx-panel h2 { margin: 0 0 18px; font: 600 1rem/1.2 var(--ocx-display); }
+.ocx-panel .ocx-actions { display: grid; gap: 10px; margin-top: 8px; }
+.ocx-status { min-height: 1.4em; margin: 14px 0 0; font-size: .86rem; color: var(--ocx-muted); }
+.ocx-status.is-error { color: #ff8a8a; }
+.ocx-meta { margin: 12px 0 0; font-size: .8rem; color: var(--ocx-dim); }
+
+/* ── Long-form content below a tool ──────────────────────────────────────── */
+.ocx-prose { max-width: 52rem; margin: 56px 0 0; padding-top: 36px; border-top: 1px solid var(--ocx-line); }
+.ocx-prose h2 { margin: 0 0 12px; font: 600 1.35rem/1.3 var(--ocx-display); color: var(--ocx-text); }
+.ocx-prose h3 { margin: 26px 0 8px; font: 600 1.05rem/1.3 var(--ocx-display); color: var(--ocx-text); }
+.ocx-prose p, .ocx-prose li { color: var(--ocx-muted); }
+.ocx-prose ol, .ocx-prose ul { padding-left: 1.2rem; }
+.ocx-prose li { margin: .35rem 0; }
+.ocx-foot { margin: 28px 0 0; font-size: .8rem; color: var(--ocx-dim); }
+.ocx-foot a { color: var(--ocx-muted) !important; }
+
+/* ── Access gate ─────────────────────────────────────────────────────────── */
+.ocx-gate { position: absolute; inset: 0; z-index: 30; display: grid; place-items: start center; padding: 0 24px; border-radius: inherit; background: rgba(14,14,16,.92); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.ocx-gate-card { position: sticky; top: 22vh; margin-top: 22vh; max-width: 24rem; padding: 32px; text-align: center; border: 1px solid var(--ocx-line); border-radius: var(--ocx-r-lg); background: var(--ocx-raised); }
+.ocx-gate-card h2 { margin: 0 0 8px; font: 700 1.4rem/1.2 var(--ocx-display); }
+.ocx-gate-card p { margin: 0 0 18px; color: var(--ocx-muted); }
+
+/* ── Embedded in the CORE landing page: dark site chrome, full bleed ─────── */
+.ocx-embedded { --ocx-top: var(--header-h, 76px); width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); margin-top: -1px; }
+body:has(.ocx-app.ocx-embedded) { background: var(--ocx-bg); }
+body:has(.ocx-app.ocx-embedded) #header { background: rgba(14,14,16,.88); -webkit-backdrop-filter: saturate(160%) blur(14px); backdrop-filter: saturate(160%) blur(14px); border-bottom: 1px solid var(--ocx-line); }
+body:has(.ocx-app.ocx-embedded) #header .logo-text,
+body:has(.ocx-app.ocx-embedded) #header #desktop-menu a,
+body:has(.ocx-app.ocx-embedded) #header .search-icon { color: #f4f4f6; }
+body:has(.ocx-app.ocx-embedded) #header .search-icon svg { stroke: #f4f4f6; }
+body:has(.ocx-app.ocx-embedded) #header #desktop-menu a:hover { color: var(--ocx-accent-hi); }
+body:has(.ocx-app.ocx-embedded) #header .hamburger span { background: #f4f4f6; }
+body:has(.ocx-app.ocx-embedded) .nav-menu.mobile { background: #17171a; border-top: 1px solid var(--ocx-line); }
+body:has(.ocx-app.ocx-embedded) .nav-menu.mobile a { color: #f4f4f6; }
+body:has(.ocx-app.ocx-embedded) footer { background: var(--ocx-bg); border-top: 1px solid var(--ocx-line); }
+body:has(.ocx-app.ocx-embedded) footer, body:has(.ocx-app.ocx-embedded) footer p { color: var(--ocx-dim); }
+body:has(.ocx-app.ocx-embedded) footer a { color: var(--ocx-muted); }
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .ocx-tiles-sm { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ocx-work { grid-template-columns: minmax(0, 1fr); }
+  .ocx-panel { position: static; }
+}
+@media (max-width: 900px) {
+  .ocx-app { grid-template-columns: minmax(0, 1fr); }
+  .ocx-side { position: static; height: auto; overflow: visible; padding: 10px 12px 0; }
+  .ocx-side nav { flex-direction: row; gap: 6px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; }
+  .ocx-side nav::-webkit-scrollbar { display: none; }
+  .ocx-nav { flex: 0 0 auto; padding: .55rem .8rem; background: var(--ocx-raised); white-space: nowrap; }
+  .ocx-nav-sec, .ocx-side-note, .ocx-nav em { display: none; }
+  .ocx-main { margin: 8px 10px 12px; padding: 22px 18px 40px; }
+  .ocx-tiles-lg { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ocx-points { grid-template-columns: minmax(0, 1fr); }
+  .ocx-top-links a:not(:last-child) { display: none; }
+}
+@media (max-width: 560px) {
+  .ocx-brand span:not(.ocx-tag) { display: none; }
+  .ocx-tiles-lg, .ocx-tiles-sm { grid-template-columns: minmax(0, 1fr); }
+  .ocx-tile { aspect-ratio: 16 / 11; }
+  .ocx-drop { min-height: 320px; }
+  .ocx-stage { min-height: 320px; }
+}
+@media (prefers-reduced-motion: reduce) { .ocx-tile img, .ocx-bar.is-indeterminate > i { transition: none; animation: none; } }
+
+/* ── Batch file list (Convert image and other multi-file tools) ──────────── */
+.ocx-stage.has-files { align-items: flex-start; justify-content: stretch; }
+.ocx-files { width: 100%; padding: 18px; }
+.ocx-files-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin: 0 0 14px; }
+.ocx-files-sum { font-weight: 600; color: var(--ocx-text); }
+.ocx-files-btns { display: flex; gap: 8px; }
+.ocx-files-btns .ocx-btn { padding: .5rem .95rem; font-size: .84rem; }
+.ocx-filelist { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.ocx-file { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 10px 12px; border: 1px solid var(--ocx-line); border-radius: 12px; background: var(--ocx-raised); }
+.ocx-file-thumb { width: 56px; height: 56px; border-radius: 8px; object-fit: cover; background: repeating-conic-gradient(#2a2a30 0 25%, #1f1f24 0 50%) 50% / 12px 12px; }
+.ocx-file-name { font-weight: 600; font-size: .92rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ocx-file-meta { margin-top: 2px; color: var(--ocx-muted); font-size: .82rem; white-space: pre-wrap; }
+.ocx-file-meta .save { color: var(--ocx-accent-2); font-weight: 600; }
+.ocx-file-meta .grow { color: var(--ocx-muted); font-weight: 600; }
+.ocx-file.is-error .ocx-file-meta { color: #ff8a8a; }
+.ocx-file-actions { display: flex; align-items: center; gap: 6px; }
+.ocx-file-actions .ocx-btn { padding: .5rem .95rem; font-size: .84rem; }
+.ocx-x { width: 32px; height: 32px; border: 0; border-radius: 50%; background: transparent; color: var(--ocx-muted); font-size: 1.3rem; line-height: 1; cursor: pointer; }
+.ocx-x:hover { background: var(--ocx-hover); color: var(--ocx-text); }
+.ocx-spin { display: inline-block; width: 14px; height: 14px; margin-right: 8px; vertical-align: -2px; border: 2px solid var(--ocx-hover); border-top-color: var(--ocx-accent-hi); border-radius: 50%; animation: ocx-rot .8s linear infinite; }
+@keyframes ocx-rot { to { transform: rotate(360deg); } }
+.ocx-select { width: 100%; padding: .65rem .8rem; border-radius: 10px; border: 1px solid var(--ocx-line); background: var(--ocx-bg); color: var(--ocx-text); font: inherit; }
+@media (max-width: 560px) { .ocx-file { grid-template-columns: 56px minmax(0, 1fr); } .ocx-file-actions { grid-column: 1 / -1; justify-content: flex-end; } }
+@media (prefers-reduced-motion: reduce) { .ocx-spin { animation: none; } }
+
+/* ── Result card (tools that produce a single file) ──────────────────────── */
+.ocx-result { padding: 14px 16px; border: 1px solid var(--ocx-line); border-radius: 10px; background: var(--ocx-bg); }
+.ocx-result-title { margin: 0 0 2px; font-weight: 600; }
+.ocx-result-info { margin: 0 0 12px; color: var(--ocx-muted); font-size: .88rem; }
+.ocx-x:disabled { opacity: .25; cursor: default; }
+.ocx-x:disabled:hover { background: transparent; color: var(--ocx-muted); }
+
+.ocx-gate-preview { margin: 0 0 14px; padding: .35rem .6rem; border-radius: 6px; background: var(--ocx-hover); color: var(--ocx-muted); font: 600 .72rem/1.3 var(--ocx-font); letter-spacing: .04em; text-transform: uppercase; }
+
+/* ── Forms and the QR tool ───────────────────────────────────────────────── */
+.ocx-card { padding: 18px; border: 1px solid var(--ocx-line); border-radius: 14px; background: var(--ocx-bg); }
+.ocx-qr-main { display: grid; gap: 16px; align-content: start; min-width: 0; }
+.ocx-fields { margin-top: 14px; display: grid; gap: 8px; }
+.ocx-flabel { font: 600 .78rem/1 var(--ocx-font); letter-spacing: .05em; text-transform: uppercase; color: var(--ocx-muted); margin-top: 6px; }
+.ocx-input, .ocx-textarea { width: 100%; padding: .7rem .85rem; border-radius: 10px; border: 1px solid var(--ocx-line); background: var(--ocx-panel); color: var(--ocx-text); font: inherit; }
+.ocx-textarea { resize: vertical; min-height: 84px; }
+.ocx-input:focus, .ocx-textarea:focus, .ocx-select:focus { outline: 2px solid var(--ocx-accent-hi); outline-offset: 1px; }
+.ocx-check { display: flex; align-items: center; gap: 10px; margin-top: 4px; cursor: pointer; }
+.ocx-qr-preview { display: grid; place-items: center; min-height: 340px; padding: 24px; border: 1px solid var(--ocx-line); border-radius: 14px; background: repeating-conic-gradient(#202024 0 25%, #18181b 0 50%) 50% / 20px 20px; }
+.ocx-qr-preview canvas { width: min(100%, 380px); height: auto; aspect-ratio: 1; image-rendering: pixelated; border-radius: 2px; }
+.ocx-qr-empty { margin: 0; max-width: 18rem; text-align: center; color: var(--ocx-muted); background: var(--ocx-bg); padding: 14px 16px; border-radius: 10px; }
+.ocx-warn { margin: 0; padding: .7rem .9rem; border-radius: 10px; border: 1px solid var(--ocx-line); background: var(--ocx-raised); color: var(--ocx-text); font-size: .88rem; }
+.ocx-logo-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.ocx-logo-row .ocx-btn { padding: .55rem 1rem; font-size: .86rem; }
+.ocx-logo-row .ocx-hint { margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 11rem; }
+
+/* ── Crop editor (Resize and crop) ───────────────────────────────────────── */
+.ocx-stage.has-editor { align-items: center; justify-content: center; }
+.ocx-editor { width: 100%; display: grid; place-items: center; padding: 24px; }
+.ocx-cropwrap { position: relative; line-height: 0; overflow: hidden; padding: 16px; user-select: none; -webkit-user-select: none; touch-action: none; border-radius: 8px; background: var(--ocx-bg); }
+.ocx-cropinner { position: relative; line-height: 0; background: repeating-conic-gradient(#2a2a30 0 25%, #1f1f24 0 50%) 50% / 20px 20px; }
+.ocx-cropinner canvas { display: block; width: 100%; height: 100%; }
+.ocx-crop { position: absolute; box-shadow: 0 0 0 9999px rgba(0,0,0,.62); outline: 2px solid #fff; outline-offset: -1px; cursor: move; touch-action: none;
+  background:
+    linear-gradient(rgba(255,255,255,.4), rgba(255,255,255,.4)) 33.333% 0 / 1px 100% no-repeat,
+    linear-gradient(rgba(255,255,255,.4), rgba(255,255,255,.4)) 66.666% 0 / 1px 100% no-repeat,
+    linear-gradient(rgba(255,255,255,.4), rgba(255,255,255,.4)) 0 33.333% / 100% 1px no-repeat,
+    linear-gradient(rgba(255,255,255,.4), rgba(255,255,255,.4)) 0 66.666% / 100% 1px no-repeat; }
+.ocx-crop:focus-visible { outline: 3px solid var(--ocx-accent-hi); }
+.ocx-crop i { position: absolute; width: 14px; height: 14px; margin: -7px 0 0 -7px; background: #fff; border: 2px solid #0a0a0a; border-radius: 3px; }
+.ocx-crop i[data-h="nw"] { left: 0; top: 0; cursor: nwse-resize; } .ocx-crop i[data-h="n"] { left: 50%; top: 0; cursor: ns-resize; }
+.ocx-crop i[data-h="ne"] { left: 100%; top: 0; cursor: nesw-resize; } .ocx-crop i[data-h="e"] { left: 100%; top: 50%; cursor: ew-resize; }
+.ocx-crop i[data-h="se"] { left: 100%; top: 100%; cursor: nwse-resize; } .ocx-crop i[data-h="s"] { left: 50%; top: 100%; cursor: ns-resize; }
+.ocx-crop i[data-h="sw"] { left: 0; top: 100%; cursor: nesw-resize; } .ocx-crop i[data-h="w"] { left: 0; top: 50%; cursor: ew-resize; }
+@media (pointer: coarse) { .ocx-crop i { width: 24px; height: 24px; margin: -12px 0 0 -12px; } }
+.ocx-size-row { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px; }
+.ocx-size-row span { color: var(--ocx-muted); }
+.ocx-tools-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.ocx-tools-row .ocx-btn { padding: .6rem .5rem; font-size: .84rem; }
+
+/* Image to SVG: preview with a vector/original switch */
+.ocx-preview { width: 100%; align-self: stretch; display: flex; flex-direction: column; }
+.ocx-pv-bar { display: flex; justify-content: flex-end; padding: 12px 12px 0; }
+.ocx-seg-sm { width: auto; }
+.ocx-seg-sm button { padding: .4rem .9rem; }
+.ocx-pv-canvas { position: relative; flex: 1; min-height: 340px; margin: 12px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: repeating-conic-gradient(#2a2a30 0 25%, #1f1f24 0 50%) 50% / 20px 20px; overflow: hidden; }
+.ocx-pv-canvas img { display: block; max-width: 100%; max-height: var(--ocx-view-h, max(420px, calc(100vh - 300px))); object-fit: contain; }
+.ocx-busy { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; margin: 0; background: rgba(14,14,16,.72); color: var(--ocx-text); font-weight: 600; }
+.ocx-check { display: flex; align-items: center; gap: .55rem; color: var(--ocx-text); font-size: .9rem; cursor: pointer; }
+.ocx-check input { width: 16px; height: 16px; accent-color: var(--ocx-accent); }
+
+/* Patterns: repeating preview */
+.ocx-pv-pat-wrap { background: var(--ocx-bg); min-height: 420px; }
+.ocx-pv-pat { position: absolute; inset: 0; background-repeat: repeat; background-position: 0 0; }
+.ocx-pv-lines { position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(to right, rgba(255,255,255,.6) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.6) 1px, transparent 1px); background-position: 0 0; }
+input[type="color"] { width: 44px; height: 34px; padding: 2px; border-radius: 8px; border: 1px solid var(--ocx-line); background: var(--ocx-bg); cursor: pointer; }
+
+/* Favicon generator: preview panels */
+.fav-prev { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; padding: 12px; box-sizing: border-box; align-self: stretch; }
+.fav-panel { border-radius: 12px; padding: 16px; min-width: 0; }
+.fav-panel.is-light { background: #f4f4f5; color: #18181b; }
+.fav-panel.is-dark { background: #1c1c20; color: #f4f4f5; border: 1px solid #2c2c32; }
+.fav-label { margin: 0 0 12px; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; opacity: .6; font-weight: 600; }
+.fav-tab { display: inline-flex; align-items: center; gap: 8px; max-width: 100%; padding: 8px 14px; border-radius: 10px 10px 0 0; background: #fff; color: #18181b; font-size: .8rem; margin-bottom: 18px; box-shadow: 0 1px 0 rgba(0,0,0,.08); }
+.fav-panel.is-dark .fav-tab { background: #2b2b31; color: #f4f4f5; box-shadow: none; }
+.fav-tab img { flex: none; }
+.fav-tab span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fav-sizes { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 18px 16px; }
+.fav-sizes figure { margin: 0; text-align: center; }
+.fav-sizes img { display: block; margin: 0 auto 6px; }
+.fav-sizes figcaption { font-size: .7rem; opacity: .6; }
+@media (max-width: 760px) { .fav-prev { grid-template-columns: 1fr; } }
+
+/* Colour palette */
+.pal-body { width: 100%; padding: 14px; box-sizing: border-box; align-self: stretch; }
+.pal-imgwrap { position: relative; line-height: 0; border-radius: 10px; overflow: hidden; background: #000; }
+.pal-imgwrap canvas { display: block; width: 100%; height: auto; max-height: var(--ocx-view-h, max(420px, calc(100vh - 340px))); object-fit: contain; cursor: crosshair; }
+.pal-readout { position: absolute; left: 10px; bottom: 10px; display: inline-flex; align-items: center; gap: .5rem; padding: .35rem .6rem; border-radius: 8px; background: rgba(14,14,16,.88); color: #f4f4f5; font: 600 .8rem/1 var(--ocx-font); }
+.pal-readout span { width: 16px; height: 16px; border-radius: 4px; border: 1px solid rgba(255,255,255,.4); }
+.pal-h { margin: 18px 0 10px; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ocx-dim); font-weight: 600; }
+.pal-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.pal-wrap { position: relative; }
+.pal-sw { width: 100%; min-height: 96px; padding: 12px; border: 1px solid rgba(255,255,255,.14); border-radius: 10px; cursor: pointer; text-align: left; display: flex; flex-direction: column; justify-content: flex-end; gap: 4px; font-family: var(--ocx-font); transition: transform .15s ease; }
+.pal-sw:hover, .pal-sw:focus-visible { transform: translateY(-2px); }
+.pal-sw:focus-visible { outline: 2px solid var(--ocx-accent-hi); outline-offset: 2px; }
+.pal-hex { font-weight: 700; font-size: 1rem; letter-spacing: .02em; }
+.pal-meta { font-size: .68rem; opacity: .78; line-height: 1.3; }
+.pal-x { position: absolute; top: 6px; right: 6px; width: 24px; height: 24px; border-radius: 50%; border: 0; background: rgba(14,14,16,.7); color: #fff; cursor: pointer; font-size: 1rem; line-height: 1; }
+.pal-out { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .78rem; line-height: 1.45; resize: vertical; margin-top: 10px; }
+@media (prefers-reduced-motion: reduce) { .pal-sw { transition: none; } .pal-sw:hover { transform: none; } }
+
+/* Collapsible menu */
+.ocx-collapse { display: flex; align-items: center; gap: 12px; margin: 0 0 8px; padding: .5rem .8rem; border: 0; border-radius: 11px; background: transparent; color: var(--ocx-dim); font: 500 .82rem/1 var(--ocx-font); cursor: pointer; text-align: left; }
+.ocx-collapse:hover { background: var(--ocx-raised); color: var(--ocx-text); }
+.ocx-collapse svg { transition: transform .2s; flex: 0 0 auto; }
+.ocx-app { transition: grid-template-columns .18s ease; }
+.ocx-app.is-collapsed { --ocx-side: 76px; }
+.ocx-app.is-collapsed .ocx-side { padding-left: 10px; padding-right: 8px; }
+.ocx-app.is-collapsed .ocx-collapse svg { transform: rotate(180deg); }
+.ocx-app.is-collapsed .ocx-nav, .ocx-app.is-collapsed .ocx-collapse { justify-content: center; padding-left: 0; padding-right: 0; gap: 0; }
+.ocx-app.is-collapsed .ocx-nav > span:not(.ocx-ico-ai), .ocx-app.is-collapsed .ocx-collapse > span, .ocx-app.is-collapsed .ocx-nav em, .ocx-app.is-collapsed .ocx-side-note { display: none; }
+.ocx-app.is-collapsed .ocx-nav-sec { height: 1px; margin: 12px 8px; padding: 0; overflow: hidden; font-size: 0; background: var(--ocx-line); }
+@media (max-width: 900px) { .ocx-collapse { display: none; } }
+@media (prefers-reduced-motion: reduce) { .ocx-app { transition: none; } }
+
+/* Drag the bottom edge of the picture area to make it taller or shorter (added by studio.js) */
+.ocx-grip { display: none; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); z-index: 9; width: 120px; height: 18px; cursor: ns-resize; touch-action: none; }
+.ocx-grip i { position: absolute; left: 50%; bottom: 5px; transform: translateX(-50%); width: 44px; height: 4px; border-radius: 4px; background: #4a4a54; }
+.ocx-grip:hover i, .ocx-grip:focus-visible i, .ocx-grip.is-drag i { background: var(--ocx-muted); }
+.ocx-stage:has(.ocx-view:not([hidden]), .ocx-preview:not([hidden])) > .ocx-grip { display: block; }
+@media (max-width: 900px) { .ocx-stage > .ocx-grip { display: none !important; } }
+
+/* ── Zoom and pan for picture previews (viewport.js) ─────────────────────── */
+.ocx-vp { min-width: 0; }
+.ocx-vp:not(.is-on) > .ocx-vp-tools, .ocx-vp:not(.is-on) > .ocx-vp-bar { display: none; }
+@media (min-width: 901px) {
+  .ocx-vp.is-on { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); column-gap: 10px; row-gap: 8px; align-items: start; }
+  .ocx-vp.is-on > .ocx-vp-bar { grid-column: 2; grid-row: 1; }
+  .ocx-vp.is-on > .ocx-vp-tools { grid-column: 1; grid-row: 2; }
+  .ocx-vp.is-on > :not(.ocx-vp-bar):not(.ocx-vp-tools) { grid-column: 2; grid-row: 2; }
+}
+@media (max-width: 900px) { .ocx-vp { display: contents; } .ocx-vp-tools, .ocx-vp-bar { display: none !important; } }
+.ocx-preview > .ocx-vp { flex: 1; margin: 12px 12px 12px; display: flex; flex-direction: column; }
+.ocx-preview > .ocx-vp.is-on { display: grid; }
+.ocx-vp > .ocx-pv-canvas { margin: 0; height: 100%; min-height: 340px; }
+.ocx-vp-bar { display: flex; justify-content: center; }
+.ocx-vp-zoom { display: inline-flex; gap: 3px; padding: 3px; border-radius: 9px; border: 1px solid var(--ocx-line); background: var(--ocx-raised); }
+.ocx-vp-zoom button { height: 24px; min-width: 28px; padding: 0 8px; border: 1px solid transparent; border-radius: 6px; background: var(--ocx-hover); color: var(--ocx-text); font: 600 .78rem/1 var(--ocx-font); cursor: pointer; touch-action: manipulation; }
+.ocx-vp-zoom button:hover { border-color: #3a3a42; }
+.ocx-vp-zoom .ocx-vp-read { min-width: 54px; }
+.ocx-vp-tools { display: flex; flex-direction: column; gap: 4px; padding: 6px; border: 1px solid var(--ocx-line); border-radius: 12px; background: var(--ocx-raised); box-shadow: 0 6px 18px rgba(0,0,0,.35); }
+.ocx-vp-tool { position: relative; width: 38px; height: 38px; padding: 0; display: grid; place-items: center; border: 1px solid transparent; border-radius: 9px; background: transparent; color: var(--ocx-muted); cursor: pointer; }
+.ocx-vp-tool svg { width: 22px; height: 22px; }
+.ocx-vp-tool:hover { background: var(--ocx-hover); color: var(--ocx-text); }
+.ocx-vp-tool[aria-pressed="true"] { background: var(--ocx-hover); border-color: #3a3a42; color: var(--ocx-text); box-shadow: 0 0 0 1px rgba(110,160,255,.5) inset; }
+.ocx-vp-tool::after { content: attr(data-tip); position: absolute; left: calc(100% + 12px); top: 50%; transform: translateY(-50%); padding: .4rem .6rem; border-radius: 7px; background: #000; color: #fff; font: 500 .78rem/1.2 var(--ocx-font); white-space: nowrap; pointer-events: none; opacity: 0; z-index: 40; }
+.ocx-vp-tool:hover::after, .ocx-vp-tool:focus-visible::after { opacity: 1; }
+@media (hover: none) { .ocx-vp-tool::after { display: none; } }
+.ocx-vp-zoom button:focus-visible, .ocx-vp-tool:focus-visible { outline: 2px solid var(--ocx-accent-hi); outline-offset: 2px; }
+/* cursors and the scaled picture */
+[data-vp-tool="move"], .ocx-vp-can-pan { cursor: grab; }
+[data-vp-tool="zoom"] { cursor: zoom-in; }
+.ocx-vp-panning, .ocx-vp-panning * { cursor: grabbing !important; }
+[data-ocx-viewport][data-vp-tool="move"] .ocx-compare, [data-ocx-viewport][data-vp-tool="zoom"] .ocx-compare { pointer-events: none; }
+.ocx-vp-pixels canvas { image-rendering: pixelated; }
+.ocx-vp-zoomed { will-change: transform; max-width: none; }
+.ocx-vp-zoomed .ocx-divider { width: calc(2px * var(--ocx-inv, 1)); margin-left: calc(-1px * var(--ocx-inv, 1)); }
+.ocx-vp-zoomed .ocx-divider::after { transform: scale(var(--ocx-inv, 1)); }
+.ocx-vp-zoomed .ocx-view-tags { left: calc(10px * var(--ocx-inv, 1)); right: calc(10px * var(--ocx-inv, 1)); bottom: calc(10px * var(--ocx-inv, 1)); }
+.ocx-vp-zoomed .ocx-view-tags span:first-child { transform: scale(var(--ocx-inv, 1)); transform-origin: left bottom; }
+.ocx-vp-zoomed .ocx-view-tags span:last-child { transform: scale(var(--ocx-inv, 1)); transform-origin: right bottom; }
+.ocx-vp-sb { position: absolute; z-index: 6; background: rgba(255,255,255,.06); border-radius: 6px; touch-action: none; }
+.ocx-vp-sb[hidden], .ocx-vp-box[hidden] { display: none; }
+.ocx-vp-sb i { position: absolute; background: rgba(255,255,255,.38); border-radius: 6px; }
+.ocx-vp-sb:hover i, .ocx-vp-sb.is-drag i { background: rgba(255,255,255,.6); }
+.ocx-vp-sbx { left: 4px; right: 16px; bottom: 20px; height: 10px; }
+.ocx-vp-sbx i { top: 0; bottom: 0; }
+.ocx-vp-sby { top: 4px; bottom: 28px; right: 4px; width: 10px; }
+.ocx-vp-sby i { left: 0; right: 0; }
+.ocx-vp-box { position: absolute; z-index: 6; border: 1.5px dashed #fff; outline: 1px dashed #000; pointer-events: none; }
+
+/* Embedded mode (?embed=1): a tool running inside a frame in a bigger tool. The chrome is hidden; a bar at the bottom sends the result back. */
+html.ocx-embed .ocx-top, html.ocx-embed .ocx-side, html.ocx-embed .ocx-crumb, html.ocx-embed .ocx-h1, html.ocx-embed .ocx-sub { display: none !important; }
+html.ocx-embed .ocx-app { display: block; min-height: 0; }
+html.ocx-embed .ocx-main { padding: 14px 16px 84px; }
+.ocx-embed-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 250; display: flex; align-items: center; justify-content: flex-end; gap: 10px; padding: 12px 16px; background: var(--ocx-panel); border-top: 1px solid var(--ocx-line); }
+.ocx-embed-msg { flex: 1; color: var(--ocx-muted); font-size: .88rem; }

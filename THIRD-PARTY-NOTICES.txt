@@ -1,0 +1,8 @@
+Third-party libraries included in this repository
+
+qrcode-generator 2.0.4 (qrcode-generator-2.0.4.js)
+QR Code Generator for JavaScript. Copyright (c) 2009 Kazuhiko Arase. Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php).
+Source: https://www.npmjs.com/package/qrcode-generator   "QR Code" is a registered trademark of DENSO WAVE INCORPORATED.
+
+pdf-lib 1.17.1 (pdf-lib.min.js), MIT, (c) Andrew Dillon. See pdf-lib-LICENSE.txt. Source: https://github.com/Hopding/pdf-lib
+PDF.js 3.11.174 (pdf.min.js, pdf.worker.min.js), Apache License 2.0, Mozilla. See pdfjs-LICENSE.txt. Source: https://github.com/mozilla/pdf.js

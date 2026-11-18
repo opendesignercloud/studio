@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compress Images Online: Make JPG, PNG and WebP Files Smaller | Open Designer Cloud Studio</title>
+  <meta name="description" content="Make photos and graphics smaller without leaving your browser. Set the quality, limit the size, see exactly how much you saved, and download a whole batch as a ZIP. Your files never leave your device.">
+  <link rel="canonical" href="https://opendesignercloud.com/studio/compress-image/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Image Compressor: Smaller JPG, PNG and WebP Files">
+  <meta property="og:description" content="Shrink image file sizes in your browser. Nothing is uploaded.">
+  <meta property="og:url" content="https://opendesignercloud.com/studio/compress-image/">
+  <meta property="og:image" content="https://opendesignercloud.com/assets/studio/img/tile-compress-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0e0e10">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/studio/studio.css?v=17">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Open Designer Cloud Studio: Image Compressor","url":"https://opendesignercloud.com/studio/compress-image/","applicationCategory":"DesignApplication","operatingSystem":"Any (web browser)","description":"Make images smaller in your browser. Your files never leave your device."}</script>
+</head>
+<body class="ocx-standalone">
+<header class="ocx-top">
+  <a class="ocx-brand" href="/"><img src="/media/open-designer-cloud-logo.png" alt=""><span>Open Designer Cloud</span><span class="ocx-tag">Studio</span></a>
+  <nav class="ocx-top-links" aria-label="Site"><a href="/">Back to site</a></nav>
+</header>
+
+<div class="ocx-app">
+  <aside class="ocx-side" data-ocx-nav data-active="compress-image"><nav aria-label="Studio tools"><a class="ocx-nav" href="/studio">Studio home</a></nav></aside>
+
+  <main class="ocx-main">
+    <p class="ocx-crumb"><a href="/studio">Studio</a> / Compress image</p>
+    <h1 class="ocx-h1">Compress image</h1>
+    <p class="ocx-sub">Make images smaller so pages load faster and files fit in emails and uploads. Set the quality, limit the size, and see how much each image shrank. It all happens in your browser, so your images are never uploaded.</p>
+
+    <div class="ocx-work" id="work" data-state="empty">
+      <div class="ocx-stage" id="stage">
+        <button type="button" class="ocx-drop" id="drop">
+          <span class="ocx-drop-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg></span>
+          <p class="ocx-drop-title">Drop images here</p>
+          <p class="ocx-drop-sub">or paste with Ctrl+V (⌘V on Mac). JPG, PNG, WebP, AVIF, GIF, BMP or SVG, up to 40 files at a time.</p>
+          <span class="ocx-btn ocx-btn-primary">Choose images</span>
+        </button>
+        <div class="ocx-files" id="files" hidden>
+          <div class="ocx-files-head">
+            <span class="ocx-files-sum" id="summary"></span>
+            <span class="ocx-files-btns"><button type="button" class="ocx-btn" id="addMore">Add more</button><button type="button" class="ocx-btn" id="clear">Clear all</button></span>
+          </div>
+          <ul class="ocx-filelist" id="list"></ul>
+        </div>
+      </div>
+
+      <aside class="ocx-panel" id="panel" hidden aria-label="Options">
+        <h2>Options</h2>
+        <div class="ocx-field">
+          <p class="ocx-label">Output format</p>
+          <div class="ocx-seg" id="formatSeg" role="group" aria-label="Output format">
+            <button type="button" data-format="keep" aria-pressed="true">Keep</button><button type="button" data-format="jpg" aria-pressed="false">JPG</button><button type="button" data-format="webp" aria-pressed="false">WebP</button><button type="button" data-format="avif" aria-pressed="false">AVIF</button>
+          </div>
+          <p class="ocx-hint" id="formatHint"></p>
+        </div>
+        <div class="ocx-field" id="qField">
+          <p class="ocx-label"><label for="quality">Quality</label><output id="qOut">75</output></p>
+          <input type="range" id="quality" min="30" max="100" step="1" value="75">
+          <p class="ocx-hint">Lower quality makes smaller files. 70 to 80 is a good balance for photos. It does not change PNG files that keep their format.</p>
+        </div>
+        <div class="ocx-field">
+          <p class="ocx-label"><label for="maxSide">Limit size</label></p>
+          <select class="ocx-select" id="maxSide">
+            <option value="0">Keep original size</option><option value="3840">3840 px on the longest side</option><option value="2560">2560 px</option><option value="1920">1920 px</option><option value="1280">1280 px</option><option value="800">800 px</option>
+          </select>
+          <p class="ocx-hint">Smaller images are never enlarged.</p>
+        </div>
+        <div class="ocx-field" id="bgField" hidden>
+          <p class="ocx-label">Background</p>
+          <div class="ocx-swatches" id="swatches" role="group" aria-label="Background colour for transparent areas"></div>
+          <p class="ocx-hint">JPG cannot be transparent, so transparent areas get this colour.</p>
+        </div>
+        <div class="ocx-actions"><button type="button" class="ocx-btn ocx-btn-primary ocx-btn-block" id="zip" hidden>Download all as ZIP</button></div>
+      </aside>
+    </div>
+    <p class="ocx-status" id="status" role="status" aria-live="polite"></p>
+    <input type="file" id="file" accept="image/png,image/jpeg,image/webp,image/avif,image/gif,image/bmp,image/svg+xml" multiple hidden>
+    <noscript><p class="ocx-status is-error">This tool needs JavaScript. Please enable it and reload the page.</p></noscript>
+
+    <section class="ocx-prose" aria-labelledby="how">
+      <h2 id="how">How it works</h2>
+      <ol>
+        <li>Drop in one image or a whole batch.</li>
+        <li>Leave the format on Keep, or switch to JPG, WebP or AVIF for smaller files. Adjust the quality and, if you want, the maximum size. Results appear straight away and update when you change an option.</li>
+        <li>Check the saving on each image, then download them one at a time, or all at once as a ZIP.</li>
+      </ol>
+
+      <h3>How much smaller will my images get?</h3>
+      <p>It depends on the image. Large camera photos often shrink by more than half at quality 75 with no visible difference at normal viewing size. Screenshots and logos saved as PNG shrink little, because PNG is lossless. Switching those to WebP usually saves much more. Limiting the longest side to 1920 pixels is another big saving for photos that will only be shown on a screen.</p>
+
+      <h3>Will it ever make a file bigger?</h3>
+      <p>Not when you keep the format. If recompressing an image would not make it smaller, you get your original back and it is marked as already well compressed. If you switch format, the list shows the exact change, even when a file grows.</p>
+
+      <h3>Are my images uploaded?</h3>
+      <p>No. Your images are compressed by your own browser and never leave your device. To understand how the tools are used, we keep cookie-free page-view counts and simple usage counts (which tool ran and whether it worked). We never see your images, file names or personal details.</p>
+
+      <h3>What happens to photo details and colour profiles?</h3>
+      <p>Compressing redraws the image, so camera details and location data (EXIF) are removed, which also saves a little space. The colour profile becomes standard sRGB. Files that are returned untouched keep their original details.</p>
+
+      <h3>What are the limits?</h3>
+      <p>Up to 40 images at a time, each up to 60 MB. Images larger than 8192 pixels on the longest side are reduced to fit. Animated GIFs are compressed from their first frame, and SVG files are drawn at 2048 pixels. iPhone HEIC photos need to be exported as JPG or PNG first.</p>
+
+      <p class="ocx-foot">Part of <a href="/studio">Open Designer Cloud Studio</a>, a set of image tools from <a href="/">Open Designer Cloud</a>.</p>
+    </section>
+  </main>
+</div>
+
+<script src="/assets/studio/tools.js?v=16"></script>
+<script src="/assets/studio/studio.js?v=21" defer></script>
+<script type="module" src="/assets/studio/compress.js?v=2"></script>
+<script>
+  // BriteWire Pulse (cookie-free page-view counts), same as the rest of the site.
+  window.addEventListener('load', function () {
+    var s = document.createElement('script');
+    s.src = '/britewire/bw-pulse.js';
+    s.onload = function () {
+      if (window.bwPulse) bwPulse({ site: location.hostname.replace(/^www\./, ''), endpoint: '/britewire/pulse.php' });
+    };
+    document.body.appendChild(s);
+  });
+</script>
+</body>
+</html>

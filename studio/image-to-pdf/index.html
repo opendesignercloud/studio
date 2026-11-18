@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image to PDF: Combine Images into One PDF Online | Open Designer Cloud Studio</title>
+  <meta name="description" content="Combine JPG, PNG and WebP images into one PDF in your browser. Reorder pages, choose A4, Letter or fit-to-image, and download. Your images never leave your device.">
+  <link rel="canonical" href="https://opendesignercloud.com/studio/image-to-pdf/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Image to PDF Converter">
+  <meta property="og:description" content="Turn photos and scans into a single PDF in your browser. Nothing is uploaded.">
+  <meta property="og:url" content="https://opendesignercloud.com/studio/image-to-pdf/">
+  <meta property="og:image" content="https://opendesignercloud.com/assets/studio/img/tile-image-to-pdf.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0e0e10">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/studio/studio.css?v=17">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Open Designer Cloud Studio: Image to PDF","url":"https://opendesignercloud.com/studio/image-to-pdf/","applicationCategory":"DesignApplication","operatingSystem":"Any (web browser)","description":"Combine images into one PDF in your browser. Your images never leave your device."}</script>
+</head>
+<body class="ocx-standalone">
+<header class="ocx-top">
+  <a class="ocx-brand" href="/"><img src="/media/open-designer-cloud-logo.png" alt=""><span>Open Designer Cloud</span><span class="ocx-tag">Studio</span></a>
+  <nav class="ocx-top-links" aria-label="Site"><a href="/">Back to site</a></nav>
+</header>
+
+<div class="ocx-app">
+  <aside class="ocx-side" data-ocx-nav data-active="image-to-pdf"><nav aria-label="Studio tools"><a class="ocx-nav" href="/studio">Studio home</a></nav></aside>
+
+  <main class="ocx-main">
+    <p class="ocx-crumb"><a href="/studio">Studio</a> / Image to PDF</p>
+    <h1 class="ocx-h1">Image to PDF</h1>
+    <p class="ocx-sub">Combine photos, scans and screenshots into one PDF, one image per page. Reorder the pages, pick a page size, and download. It all happens in your browser, so your images are never uploaded.</p>
+
+    <div class="ocx-work" id="work" data-state="empty">
+      <div class="ocx-stage" id="stage">
+        <button type="button" class="ocx-drop" id="drop">
+          <span class="ocx-drop-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg></span>
+          <p class="ocx-drop-title">Drop images here</p>
+          <p class="ocx-drop-sub">or paste with Ctrl+V (⌘V on Mac). JPG, PNG, WebP, AVIF, GIF, BMP or SVG, up to 60 images.</p>
+          <span class="ocx-btn ocx-btn-primary">Choose images</span>
+        </button>
+        <div class="ocx-files" id="files" hidden>
+          <div class="ocx-files-head">
+            <span class="ocx-files-sum" id="summary"></span>
+            <span class="ocx-files-btns"><button type="button" class="ocx-btn" id="addMore">Add more</button><button type="button" class="ocx-btn" id="sortName">Sort by name</button><button type="button" class="ocx-btn" id="clear">Clear all</button></span>
+          </div>
+          <ul class="ocx-filelist" id="list"></ul>
+        </div>
+      </div>
+
+      <aside class="ocx-panel" id="panel" hidden aria-label="PDF options">
+        <h2>PDF options</h2>
+        <div class="ocx-field">
+          <p class="ocx-label">Page size</p>
+          <div class="ocx-seg" id="sizeSeg" role="group" aria-label="Page size">
+            <button type="button" data-value="fit" aria-pressed="false">Fit image</button><button type="button" data-value="a4" aria-pressed="true">A4</button><button type="button" data-value="letter" aria-pressed="false">Letter</button>
+          </div>
+        </div>
+        <div class="ocx-field" id="orientField">
+          <p class="ocx-label">Orientation</p>
+          <div class="ocx-seg" id="orientSeg" role="group" aria-label="Page orientation">
+            <button type="button" data-value="auto" aria-pressed="true">Auto</button><button type="button" data-value="portrait" aria-pressed="false">Portrait</button><button type="button" data-value="landscape" aria-pressed="false">Landscape</button>
+          </div>
+          <p class="ocx-hint">Auto turns the page sideways for wide images.</p>
+        </div>
+        <div class="ocx-field">
+          <p class="ocx-label"><label for="margin">Margin</label></p>
+          <select class="ocx-select" id="margin"><option value="none">None</option><option value="small" selected>Small</option><option value="medium">Medium</option></select>
+        </div>
+        <div class="ocx-field">
+          <p class="ocx-label"><label for="quality">Image quality</label></p>
+          <select class="ocx-select" id="quality">
+            <option value="original" selected>Keep original (best)</option><option value="high">High</option><option value="medium">Medium</option><option value="small">Small file</option>
+          </select>
+          <p class="ocx-hint">Keep original embeds JPG photos without re-compressing them. Lower settings shrink the PDF.</p>
+        </div>
+        <div class="ocx-actions">
+          <button type="button" class="ocx-btn ocx-btn-primary ocx-btn-block" id="create">Create PDF</button>
+          <div class="ocx-result" id="result" hidden>
+            <p class="ocx-result-title">Your PDF is ready</p>
+            <p class="ocx-result-info" id="resultInfo"></p>
+            <button type="button" class="ocx-btn ocx-btn-primary ocx-btn-block" id="download">Download PDF</button>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <p class="ocx-status" id="status" role="status" aria-live="polite"></p>
+    <input type="file" id="file" accept="image/png,image/jpeg,image/webp,image/avif,image/gif,image/bmp,image/svg+xml" multiple hidden>
+    <noscript><p class="ocx-status is-error">This tool needs JavaScript. Please enable it and reload the page.</p></noscript>
+
+    <section class="ocx-prose" aria-labelledby="how">
+      <h2 id="how">How it works</h2>
+      <ol>
+        <li>Drop in your images. They become pages in the order shown.</li>
+        <li>Use the arrows to reorder pages, or sort them by file name.</li>
+        <li>Choose a page size, margin and quality, then select Create PDF and download it.</li>
+      </ol>
+
+      <h3>Are my images uploaded?</h3>
+      <p>No. The PDF is built by your own browser, and your images never leave your device. To understand how the tools are used, we keep cookie-free page-view counts and simple usage counts (which tool ran and whether it worked). We never see your images, file names or personal details.</p>
+
+      <h3>Will my photos lose quality?</h3>
+      <p>Not with Keep original. JPG photos are placed into the PDF exactly as they are, so there is no re-compression. Other formats, such as PNG and WebP, are saved as high-quality JPG inside the PDF, and transparent areas become white. Photos that are rotated by the camera or use unusual colour modes are redrawn so they appear the right way up.</p>
+
+      <h3>Which page size should I use?</h3>
+      <p><strong>Fit image</strong> makes each page exactly the size of its image, which suits scans and screenshots. <strong>A4</strong> and <strong>Letter</strong> place each image on a standard page, centred and scaled to fit inside the margin.</p>
+
+      <h3>What are the limits?</h3>
+      <p>Up to 60 images, each up to 60 MB. The pages contain pictures, not searchable text. iPhone HEIC photos need to be exported as JPG or PNG first.</p>
+
+      <p class="ocx-foot">Part of <a href="/studio">Open Designer Cloud Studio</a>, a set of image tools from <a href="/">Open Designer Cloud</a>.</p>
+    </section>
+  </main>
+</div>
+
+<script src="/assets/studio/tools.js?v=16"></script>
+<script src="/assets/studio/studio.js?v=21" defer></script>
+<script type="module" src="/assets/studio/image-to-pdf.js?v=2"></script>
+<script>
+  // BriteWire Pulse (cookie-free page-view counts), same as the rest of the site.
+  window.addEventListener('load', function () {
+    var s = document.createElement('script');
+    s.src = '/britewire/bw-pulse.js';
+    s.onload = function () {
+      if (window.bwPulse) bwPulse({ site: location.hostname.replace(/^www\./, ''), endpoint: '/britewire/pulse.php' });
+    };
+    document.body.appendChild(s);
+  });
+</script>
+</body>
+</html>

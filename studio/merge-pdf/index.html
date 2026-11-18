@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merge PDF Files Online: Combine and Reorder Pages, Free | Open Designer Cloud Studio</title>
+  <meta name="description" content="Combine several PDFs into one in your browser. Drag pages into order, rotate them, and remove the ones you do not need. Your files are never uploaded.">
+  <link rel="canonical" href="https://opendesignercloud.com/studio/merge-pdf/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Merge PDF Files in Your Browser">
+  <meta property="og:description" content="Combine PDFs and reorder their pages. Nothing is uploaded.">
+  <meta property="og:url" content="https://opendesignercloud.com/studio/merge-pdf/">
+  <meta property="og:image" content="https://opendesignercloud.com/assets/studio/img/tile-merge-pdf.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0e0e10">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/studio/studio.css?v=17">
+  <link rel="stylesheet" href="/assets/studio/merge-pdf.css?v=1">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Open Designer Cloud Studio: Merge PDF","url":"https://opendesignercloud.com/studio/merge-pdf/","applicationCategory":"DesignApplication","operatingSystem":"Any (web browser)","description":"Combine PDF files and reorder their pages in your browser. Your files never leave your device."}</script>
+</head>
+<body class="ocx-standalone">
+<header class="ocx-top">
+  <a class="ocx-brand" href="/"><img src="/media/open-designer-cloud-logo.png" alt=""><span>Open Designer Cloud</span><span class="ocx-tag">Studio</span></a>
+  <nav class="ocx-top-links" aria-label="Site"><a href="/">Back to site</a></nav>
+</header>
+
+<div class="ocx-app">
+  <aside class="ocx-side" data-ocx-nav data-active="merge-pdf"><nav aria-label="Studio tools"><a class="ocx-nav" href="/studio">Studio home</a></nav></aside>
+
+  <main class="ocx-main">
+    <p class="ocx-crumb"><a href="/studio">Studio</a> / Merge PDF</p>
+    <h1 class="ocx-h1">Merge PDF</h1>
+    <p class="ocx-sub">Combine several PDFs into one. Every page shows as a thumbnail, so you can drag pages into the order you want, rotate them, and remove the ones you do not need. It all happens in your browser, so your files are never uploaded.</p>
+
+    <div class="ocx-work mp" id="work" data-state="empty">
+      <div class="mp-main">
+        <div class="ocx-stage" id="stage">
+          <button type="button" class="ocx-drop" id="drop">
+            <span class="ocx-drop-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg></span>
+            <p class="ocx-drop-title">Drop your PDFs here</p>
+            <p class="ocx-drop-sub">Choose two or more. Up to 20 PDFs, 100 MB each and 1,000 pages in total.</p>
+            <span class="ocx-btn ocx-btn-primary">Choose PDFs</span>
+          </button>
+          <div class="mp-grid" id="grid" hidden></div>
+          <div class="ocx-busy" id="busy" hidden role="status" aria-live="polite">
+            <p id="busyText">Getting ready</p>
+            <div class="ocx-bar is-indeterminate" id="bar"><i></i></div>
+            <small id="busySub"></small>
+          </div>
+        </div>
+      </div>
+
+      <aside class="ocx-panel mp-panel" id="panel" hidden aria-label="Merge options">
+        <h2>Your PDFs</h2>
+        <p class="mp-count" id="count"></p>
+        <ul class="mp-files" id="files"></ul>
+        <div class="mp-row"><button type="button" class="ocx-btn" id="add">Add more PDFs</button><button type="button" class="ocx-btn" id="reverse">Reverse order</button><button type="button" class="ocx-btn" id="clear">Start over</button></div>
+        <div class="ocx-field">
+          <p class="ocx-label"><label for="name">File name</label></p>
+          <input class="ocx-input" id="name" type="text" maxlength="60" autocomplete="off" spellcheck="false" value="merged">
+        </div>
+        <div class="ocx-actions">
+          <button type="button" class="ocx-btn ocx-btn-primary ocx-btn-block" id="download">Merge and download</button>
+        </div>
+        <p class="ocx-meta" id="meta"></p>
+      </aside>
+    </div>
+    <p class="ocx-status" id="status" role="status" aria-live="polite"></p>
+    <input type="file" id="file" accept="application/pdf,.pdf" multiple hidden>
+    <noscript><p class="ocx-status is-error">This tool needs JavaScript. Please enable it and reload the page.</p></noscript>
+
+    <section class="ocx-prose" aria-labelledby="how">
+      <h2 id="how">How it works</h2>
+      <ol>
+        <li>Drop in two or more PDFs. Their pages appear in the order you added them.</li>
+        <li>Drag a page to a new spot, or use the arrow buttons under it. Use the rotate button to turn a page, and the cross to remove it. Remove a whole PDF from the panel on the right.</li>
+        <li>Name the file and choose Merge and download.</li>
+      </ol>
+
+      <h3>Are my PDFs uploaded?</h3>
+      <p>No. Your PDFs are read and combined by your own browser and never leave your device. To understand how the tools are used, we keep cookie-free page-view counts and simple usage counts (which tool ran and whether it worked). We never see your files, their contents or their names.</p>
+
+      <h3>Will the merged PDF keep its quality?</h3>
+      <p>Yes. Pages are copied across as they are, not turned into pictures, so text stays sharp and selectable, links keep working and the file size stays close to the sum of the originals. Thumbnails are only a preview.</p>
+
+      <h3>What does not carry over?</h3>
+      <p>The merged file keeps each page's content, but document-level extras from the originals, such as bookmarks, form fields that are shared between pages and the original title and author, are not carried over. Password-protected PDFs are not supported: remove the password first.</p>
+
+      <h3>What are the limits?</h3>
+      <p>Up to 20 PDFs at a time, each up to 100 MB, and 1,000 pages in total. Very large files may be slow on older phones and tablets, because everything runs on your own device.</p>
+
+      <p class="ocx-foot">Part of <a href="/studio">Open Designer Cloud Studio</a>, a set of image tools from <a href="/">Open Designer Cloud</a>. Uses <a href="https://github.com/Hopding/pdf-lib" target="_blank" rel="noopener">pdf-lib</a> (MIT) and <a href="https://mozilla.github.io/pdf.js/" target="_blank" rel="noopener">PDF.js</a> (Apache 2.0).</p>
+    </section>
+  </main>
+</div>
+
+<script src="/assets/studio/tools.js?v=16"></script>
+<script src="/assets/studio/studio.js?v=21" defer></script>
+<script src="/assets/studio/vendor/pdf.min.js" defer></script>
+<script src="/assets/studio/vendor/pdf-lib.min.js" defer></script>
+<script type="module" src="/assets/studio/merge-pdf.js?v=2"></script>
+<script>
+  // BriteWire Pulse (cookie-free page-view counts), same as the rest of the site.
+  window.addEventListener('load', function () {
+    var s = document.createElement('script');
+    s.src = '/britewire/bw-pulse.js';
+    s.onload = function () {
+      if (window.bwPulse) bwPulse({ site: location.hostname.replace(/^www\./, ''), endpoint: '/britewire/pulse.php' });
+    };
+    document.body.appendChild(s);
+  });
+</script>
+</body>
+</html>

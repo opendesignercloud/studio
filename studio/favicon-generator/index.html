@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favicon Generator: Make favicon.ico and App Icons from Any Image | Open Designer Cloud Studio</title>
+  <meta name="description" content="Turn a logo or picture into a complete favicon set: favicon.ico, PNG icons, an Apple touch icon, Android icons, a manifest and the HTML to paste in. Made in your browser, so your image never leaves your device.">
+  <link rel="canonical" href="https://opendesignercloud.com/studio/favicon-generator/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Favicon Generator">
+  <meta property="og:description" content="Make favicon.ico, PNG, Apple and Android icons from any image. Nothing is uploaded.">
+  <meta property="og:url" content="https://opendesignercloud.com/studio/favicon-generator/">
+  <meta property="og:image" content="https://opendesignercloud.com/assets/studio/img/tile-favicon-generator.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0e0e10">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/studio/studio.css?v=17">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Open Designer Cloud Studio: Favicon Generator","url":"https://opendesignercloud.com/studio/favicon-generator/","applicationCategory":"DesignApplication","operatingSystem":"Any (web browser)","description":"Make a complete favicon set from an image in your browser. Your image never leaves your device."}</script>
+</head>
+<body class="ocx-standalone">
+<header class="ocx-top">
+  <a class="ocx-brand" href="/"><img src="/media/open-designer-cloud-logo.png" alt=""><span>Open Designer Cloud</span><span class="ocx-tag">Studio</span></a>
+  <nav class="ocx-top-links" aria-label="Site"><a href="/">Back to site</a></nav>
+</header>
+
+<div class="ocx-app">
+  <aside class="ocx-side" data-ocx-nav data-active="favicon-generator"><nav aria-label="Studio tools"><a class="ocx-nav" href="/studio">Studio home</a></nav></aside>
+
+  <main class="ocx-main">
+    <p class="ocx-crumb"><a href="/studio">Studio</a> / Favicons</p>
+    <h1 class="ocx-h1">Favicon generator</h1>
+    <p class="ocx-sub">Make the small icon that appears in browser tabs, bookmarks and home screens. Drop in a logo and get every size you need, plus the code to add it to your site. It all happens in your browser, so your image is never uploaded.</p>
+
+    <div class="ocx-work" id="work" data-state="empty">
+      <div class="ocx-stage" id="stage">
+        <button type="button" class="ocx-drop" id="drop">
+          <span class="ocx-drop-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg></span>
+          <p class="ocx-drop-title">Drop your logo or image here</p>
+          <p class="ocx-drop-sub">or paste with Ctrl+V (⌘V on Mac). JPG, PNG, WebP, AVIF, GIF, BMP or SVG, up to 30 MB. Square, simple images work best..</p>
+          <span class="ocx-btn ocx-btn-primary">Choose an image</span>
+        </button>
+        <div class="ocx-preview" id="preview" hidden>
+          <div class="fav-prev">
+            <div class="fav-panel is-light"><p class="fav-label">On a light browser</p><div id="pvLight"></div></div>
+            <div class="fav-panel is-dark"><p class="fav-label">On a dark browser</p><div id="pvDark"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="ocx-panel" id="panel" hidden aria-label="Favicon options">
+        <h2>Icon options</h2>
+        <div class="ocx-field">
+          <p class="ocx-label">Image fit</p>
+          <div class="ocx-seg" id="fitSeg" role="group" aria-label="Image fit"><button type="button" data-fit="fit" aria-pressed="true">Fit whole image</button><button type="button" data-fit="fill" aria-pressed="false">Fill square</button></div>
+          <p class="ocx-hint">Fill crops a wide or tall picture to its centre square.</p>
+        </div>
+        <div class="ocx-field">
+          <p class="ocx-label">Shape</p>
+          <div class="ocx-seg" id="shapeSeg" role="group" aria-label="Icon shape"><button type="button" data-shape="square" aria-pressed="false">Square</button><button type="button" data-shape="rounded" aria-pressed="true">Rounded</button><button type="button" data-shape="circle" aria-pressed="false">Circle</button></div>
+        </div>
+        <div class="ocx-field">
+          <p class="ocx-label"><label for="pad">Padding</label><output id="padOut">8%</output></p>
+          <input type="range" id="pad" min="0" max="30" step="1" value="8">
+        </div>
+        <div class="ocx-field">
+          <p class="ocx-label"><label for="bg">Background</label></p>
+          <div class="ocx-tools-row"><input type="color" id="bg" value="#ffffff" aria-label="Background colour" disabled><label class="ocx-check"><input type="checkbox" id="transp" checked> Transparent</label></div>
+          <p class="ocx-hint">The Apple icon always gets a solid background, because iOS fills transparency with black.</p>
+        </div>
+        <div class="ocx-field">
+          <p class="ocx-label"><label for="siteName">Site name</label></p>
+          <input class="ocx-input" id="siteName" type="text" maxlength="40" value="My site" autocomplete="off">
+          <p class="ocx-hint">Used in the preview and the web app manifest.</p>
+        </div>
+        <div class="ocx-field">
+          <p class="ocx-label"><label for="theme">Theme colour</label></p>
+          <input type="color" id="theme" value="#ffffff" aria-label="Theme colour">
+        </div>
+        <div class="ocx-actions">
+          <button type="button" class="ocx-btn ocx-btn-primary ocx-btn-block" id="zip">Download all as ZIP</button>
+          <button type="button" class="ocx-btn ocx-btn-block" id="ico">Download favicon.ico only</button>
+          <button type="button" class="ocx-btn ocx-btn-block" id="copy">Copy the HTML</button>
+          <button type="button" class="ocx-btn ocx-btn-block" id="again">Use another image</button>
+        </div>
+        <p class="ocx-meta" id="info"></p>
+      </aside>
+    </div>
+    <p class="ocx-status" id="status" role="status" aria-live="polite"></p>
+    
+<input type="file" id="file" accept="image/png,image/jpeg,image/webp,image/avif,image/gif,image/bmp,image/svg+xml" hidden>
+    <noscript><p class="ocx-status is-error">This tool needs JavaScript. Please enable it and reload the page.</p></noscript>
+
+    <section class="ocx-prose" aria-labelledby="how">
+      <h2 id="how">How it works</h2>
+      <ol>
+        <li>Drop in your logo or a picture. The preview shows it as a browser tab icon and at each size, on light and dark browsers.</li>
+        <li>Choose how it fits, its shape, padding and background. Fill crops to a square, and Fit keeps the whole image.</li>
+        <li>Download the ZIP, then upload its files to the top level of your website and paste the HTML into your page head.</li>
+      </ol>
+
+      <h3>What is in the ZIP?</h3>
+      <ul>
+        <li><strong>favicon.ico</strong> with 16, 32 and 48 pixel icons, for browsers and Windows.</li>
+        <li><strong>favicon-16x16.png</strong> and <strong>favicon-32x32.png</strong> for modern browsers.</li>
+        <li><strong>apple-touch-icon.png</strong> (180 pixels) for iPhone and iPad home screens.</li>
+        <li><strong>android-chrome-192x192.png</strong> and <strong>android-chrome-512x512.png</strong> for Android and installed web apps.</li>
+        <li><strong>site.webmanifest</strong>, which links the Android icons and your theme colour.</li>
+        <li><strong>head-snippet.html</strong>, the lines to paste inside the head of your pages.</li>
+      </ul>
+
+      <h3>Are my images uploaded?</h3>
+      <p>No. The icons are made by your own browser and your image never leaves your device. To understand how the tools are used, we keep cookie-free page-view counts and simple usage counts (which tool ran and whether it worked). We never see your images, file names or personal details.</p>
+
+      <h3>What makes a good favicon?</h3>
+      <p>Icons are tiny, so simple wins. Use a bold shape or a single letter, avoid fine detail and small text, and keep some padding. Check the 16 pixel preview: if you can still recognise it there, it will work in a tab. A transparent background suits most logos, but a solid colour helps a dark logo stay visible on a dark browser.</p>
+
+      <h3>What are the limits?</h3>
+      <p>Images up to 30 MB. SVG logos are drawn large, so they stay sharp at every size. This tool does not make maskable Android icons, so keep important details away from the edges. iPhone HEIC photos need to be exported as JPG or PNG first.</p>
+
+      <p class="ocx-foot">Part of <a href="/studio">Open Designer Cloud Studio</a>, a set of image tools from <a href="/">Open Designer Cloud</a>.</p>
+    </section>
+
+  </main>
+</div>
+
+<script src="/assets/studio/tools.js?v=16"></script>
+<script src="/assets/studio/studio.js?v=21" defer></script>
+<script src="/assets/studio/favicon.js?v=3" defer></script>
+<script>
+  // BriteWire Pulse (cookie-free page-view counts), same as the rest of the site.
+  window.addEventListener('load', function () {
+    var s = document.createElement('script');
+    s.src = '/britewire/bw-pulse.js';
+    s.onload = function () {
+      if (window.bwPulse) bwPulse({ site: location.hostname.replace(/^www\./, ''), endpoint: '/britewire/pulse.php' });
+    };
+    document.body.appendChild(s);
+  });
+</script>
+</body>
+</html>

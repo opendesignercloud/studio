@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Generator: Links, Wi-Fi, Email and Text | Open Designer Cloud Studio</title>
+  <meta name="description" content="Create QR codes for links, text, Wi-Fi, email and phone numbers. Choose colours and styles, add a logo, and download PNG or SVG. Made in your browser and never uploaded.">
+  <link rel="canonical" href="https://opendesignercloud.com/studio/qr-code/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="QR Code Generator">
+  <meta property="og:description" content="Make QR codes for links, Wi-Fi, email and more. Download PNG or SVG. Nothing is uploaded.">
+  <meta property="og:url" content="https://opendesignercloud.com/studio/qr-code/">
+  <meta property="og:image" content="https://opendesignercloud.com/assets/studio/img/tile-qr-code.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0e0e10">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/studio/studio.css?v=17">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Open Designer Cloud Studio: QR Code Generator","url":"https://opendesignercloud.com/studio/qr-code/","applicationCategory":"DesignApplication","operatingSystem":"Any (web browser)","description":"Create QR codes for links, text, Wi-Fi, email and phone numbers in your browser."}</script>
+</head>
+<body class="ocx-standalone">
+<header class="ocx-top">
+  <a class="ocx-brand" href="/"><img src="/media/open-designer-cloud-logo.png" alt=""><span>Open Designer Cloud</span><span class="ocx-tag">Studio</span></a>
+  <nav class="ocx-top-links" aria-label="Site"><a href="/">Back to site</a></nav>
+</header>
+
+<div class="ocx-app">
+  <aside class="ocx-side" data-ocx-nav data-active="qr-code"><nav aria-label="Studio tools"><a class="ocx-nav" href="/studio">Studio home</a></nav></aside>
+
+  <main class="ocx-main">
+    <p class="ocx-crumb"><a href="/studio">Studio</a> / QR codes</p>
+    <h1 class="ocx-h1">QR code generator</h1>
+    <p class="ocx-sub">Make a QR code for a link, some text, a Wi-Fi network, an email or a phone number. Choose colours and a style, add your logo, and download it as PNG or SVG. Your code is made in your browser, so nothing you type is uploaded.</p>
+
+    <div class="ocx-work" id="work" data-state="ready">
+      <div class="ocx-qr-main">
+        <div class="ocx-card">
+          <p class="ocx-label">Content</p>
+          <div class="ocx-seg" id="typeSeg" role="group" aria-label="What the code contains">
+            <button type="button" data-value="link" aria-pressed="true">Link or text</button><button type="button" data-value="wifi" aria-pressed="false">Wi-Fi</button><button type="button" data-value="email" aria-pressed="false">Email</button><button type="button" data-value="phone" aria-pressed="false">Phone</button>
+          </div>
+          <div class="ocx-fields" id="f-link">
+            <label class="ocx-flabel" for="text">Link or text</label>
+            <textarea class="ocx-textarea" id="text" rows="3" maxlength="2000" placeholder="https://example.com" autocomplete="off" spellcheck="false"></textarea>
+            <p class="ocx-hint" id="linkHint"></p>
+          </div>
+          <div class="ocx-fields" id="f-wifi" hidden>
+            <label class="ocx-flabel" for="ssid">Network name</label><input class="ocx-input" id="ssid" type="text" autocomplete="off" spellcheck="false">
+            <label class="ocx-flabel" for="wpass">Password</label><input class="ocx-input" id="wpass" type="text" autocomplete="off" spellcheck="false">
+            <label class="ocx-flabel" for="wsec">Security</label>
+            <select class="ocx-select" id="wsec"><option value="WPA" selected>WPA, WPA2 or WPA3</option><option value="WEP">WEP</option><option value="nopass">No password</option></select>
+            <label class="ocx-check"><input type="checkbox" id="whidden"><span>Hidden network</span></label>
+            <p class="ocx-hint">Anyone who scans this code can read the password, so only share it where you would share the password itself.</p>
+          </div>
+          <div class="ocx-fields" id="f-email" hidden>
+            <label class="ocx-flabel" for="eto">Email address</label><input class="ocx-input" id="eto" type="email" autocomplete="off" spellcheck="false">
+            <label class="ocx-flabel" for="esub">Subject (optional)</label><input class="ocx-input" id="esub" type="text" autocomplete="off">
+            <label class="ocx-flabel" for="ebody">Message (optional)</label><textarea class="ocx-textarea" id="ebody" rows="3" autocomplete="off"></textarea>
+          </div>
+          <div class="ocx-fields" id="f-phone" hidden>
+            <label class="ocx-flabel" for="phone">Phone number</label><input class="ocx-input" id="phone" type="tel" placeholder="+1 555 123 4567" autocomplete="off">
+          </div>
+        </div>
+        <div class="ocx-qr-preview" id="preview">
+          <canvas id="qr" width="2" height="2" aria-label="Your QR code" role="img" hidden></canvas>
+          <p class="ocx-qr-empty" id="empty">Your QR code appears here as soon as you enter some content.</p>
+        </div>
+        <p class="ocx-meta" id="info"></p>
+        <p class="ocx-warn" id="warn" hidden></p>
+      </div>
+
+      <aside class="ocx-panel" id="panel" aria-label="Style and download">
+        <h2>Style</h2>
+        <div class="ocx-field"><p class="ocx-label">Code colour</p><div class="ocx-swatches" id="fgSw" role="group" aria-label="Code colour"></div></div>
+        <div class="ocx-field"><p class="ocx-label">Background</p><div class="ocx-swatches" id="bgSw" role="group" aria-label="Background colour"></div></div>
+        <div class="ocx-field">
+          <p class="ocx-label">Dot style</p>
+          <div class="ocx-seg" id="styleSeg" role="group" aria-label="Dot style"><button type="button" data-value="square" aria-pressed="true">Square</button><button type="button" data-value="rounded" aria-pressed="false">Rounded</button><button type="button" data-value="dots" aria-pressed="false">Dots</button></div>
+        </div>
+        <div class="ocx-field">
+          <p class="ocx-label">Logo (optional)</p>
+          <div class="ocx-logo-row"><button type="button" class="ocx-btn" id="logoBtn">Add logo</button><span class="ocx-hint" id="logoName">No logo</span><button type="button" class="ocx-x" id="logoRm" aria-label="Remove logo" hidden>&times;</button></div>
+          <input type="file" id="logoFile" accept="image/png,image/jpeg,image/webp,image/svg+xml" hidden>
+          <p class="ocx-hint">A logo covers part of the code, so error correction is set to High automatically.</p>
+        </div>
+        <div class="ocx-field">
+          <p class="ocx-label"><label for="ecc">Error correction</label></p>
+          <select class="ocx-select" id="ecc"><option value="L">Low (7%)</option><option value="M" selected>Medium (15%)</option><option value="Q">Quartile (25%)</option><option value="H">High (30%)</option></select>
+          <p class="ocx-hint">Higher levels survive more damage but make a denser code.</p>
+        </div>
+        <div class="ocx-field">
+          <p class="ocx-label"><label for="size">Size</label></p>
+          <select class="ocx-select" id="size"><option value="512">512 px</option><option value="1024" selected>1024 px</option><option value="2048">2048 px</option><option value="4096">4096 px</option></select>
+        </div>
+        <div class="ocx-field">
+          <p class="ocx-label"><label for="margin">Quiet zone</label></p>
+          <select class="ocx-select" id="margin"><option value="0">None</option><option value="2">Small (2 modules)</option><option value="4" selected>Standard (4 modules)</option><option value="6">Large (6 modules)</option></select>
+          <p class="ocx-hint">The blank border scanners need. Keep it at 4 for printing.</p>
+        </div>
+        <div class="ocx-actions">
+          <button type="button" class="ocx-btn ocx-btn-primary ocx-btn-block" id="dlPng" disabled>Download PNG</button>
+          <button type="button" class="ocx-btn ocx-btn-block" id="dlSvg" disabled>Download SVG</button>
+          <button type="button" class="ocx-btn ocx-btn-block" id="copy" disabled>Copy image</button>
+        </div>
+      </aside>
+    </div>
+    <p class="ocx-status" id="status" role="status" aria-live="polite"></p>
+    <noscript><p class="ocx-status is-error">This tool needs JavaScript. Please enable it and reload the page.</p></noscript>
+
+    <section class="ocx-prose" aria-labelledby="how">
+      <h2 id="how">How it works</h2>
+      <ol>
+        <li>Choose what the code should contain, and fill in the details.</li>
+        <li>Pick colours and a style. The preview updates as you go.</li>
+        <li>Download a PNG for documents and screens, or an SVG for print and any size without blurring.</li>
+      </ol>
+
+      <h3>Do these QR codes expire, and are scans tracked?</h3>
+      <p>No. These are static codes: the information is stored inside the code itself, so it works for as long as the code exists. The code does not point to a redirect on our site, and we cannot see or count scans.</p>
+
+      <h3>How do I make sure it scans?</h3>
+      <ul>
+        <li>Keep the code dark on a light, plain background. Strong contrast matters more than any style.</li>
+        <li>Leave the quiet zone (the blank border) alone, and print it at least 2 cm wide.</li>
+        <li>Rounded and dot styles look good and scan well on modern phones, but test with a couple of devices before you print a lot.</li>
+        <li>Logos and low contrast reduce reliability. Test again after any change.</li>
+      </ul>
+
+      <h3>Is what I type uploaded?</h3>
+      <p>No. The code is made by your own browser, and the text, passwords and logos you enter never leave your device. To understand how the tools are used, we keep cookie-free page-view counts and simple usage counts (which tool ran and whether it worked). We never see what is inside your codes.</p>
+
+      <h3>What does error correction do?</h3>
+      <p>A QR code carries extra data so it can still be read if part of it is dirty, scratched or covered. Medium (15%) suits most uses. Choose High if you add a logo or the code will be printed on a rough surface.</p>
+
+      <p class="ocx-foot">QR Code is a registered trademark of DENSO WAVE INCORPORATED. Encoder: qrcode-generator (MIT licence). Part of <a href="/studio">Open Designer Cloud Studio</a>, a set of image tools from <a href="/">Open Designer Cloud</a>.</p>
+    </section>
+  </main>
+</div>
+
+<script src="/assets/studio/tools.js?v=16"></script>
+<script src="/assets/studio/studio.js?v=21" defer></script>
+<script src="/assets/studio/vendor/qrcode-generator-2.0.4.js"></script>
+<script type="module" src="/assets/studio/qr-code.js?v=5"></script>
+<script>
+  // BriteWire Pulse (cookie-free page-view counts), same as the rest of the site.
+  window.addEventListener('load', function () {
+    var s = document.createElement('script');
+    s.src = '/britewire/bw-pulse.js';
+    s.onload = function () {
+      if (window.bwPulse) bwPulse({ site: location.hostname.replace(/^www\./, ''), endpoint: '/britewire/pulse.php' });
+    };
+    document.body.appendChild(s);
+  });
+</script>
+</body>
+</html>
